@@ -1,0 +1,11 @@
+obj/
+Library/
+Temp/
+Logs/
+Packages/
+UserSettings/
+
+.DS_Store
+.idea/
+*.csproj
+*.sln
