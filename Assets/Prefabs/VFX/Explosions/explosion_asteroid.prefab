@@ -9444,7 +9444,7 @@ GameObject:
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
   - component: {fileID: 11435238}
-  - component: {fileID: 8211566}
+  - component: {fileID: -2717641403048455286}
   m_Layer: 0
   m_Name: explosion_asteroid
   m_TagString: Untagged
@@ -14312,7 +14312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 2
---- !u!82 &8211566
+--- !u!82 &-2717641403048455286
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
