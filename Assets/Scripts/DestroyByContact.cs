@@ -4,7 +4,19 @@ public class DestroyByContact : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject playerExplosion;
-    
+    public int scoreValue;
+    private GameController gameController;
+
+    private void Start() {
+        var gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null) {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null) { 
+            Debug.Log("Cannot find 'GameController' script.");   
+        }
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Boundary")) return;
         var selfTransform = transform;
@@ -12,7 +24,9 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Player")) {
             var otherTransform = other.transform;
             Instantiate(playerExplosion, otherTransform.position, otherTransform.rotation);
+            gameController.GameOver();
         }
+        gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }

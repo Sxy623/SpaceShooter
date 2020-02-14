@@ -4,6 +4,7 @@ Temp/
 Logs/
 Packages/
 UserSettings/
+Builds/
 
 .DS_Store
 .idea/
