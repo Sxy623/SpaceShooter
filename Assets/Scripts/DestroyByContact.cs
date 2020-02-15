@@ -18,14 +18,19 @@ public class DestroyByContact : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Boundary")) return;
-        var selfTransform = transform;
-        Instantiate(explosion, selfTransform.position, selfTransform.rotation);
+        if (other.CompareTag("Boundary") || other.CompareTag("Enemy")) return;
+
+        if (explosion != null) {
+            var selfTransform = transform;
+            Instantiate(explosion, selfTransform.position, selfTransform.rotation);
+        }
+
         if (other.CompareTag("Player")) {
             var otherTransform = other.transform;
             Instantiate(playerExplosion, otherTransform.position, otherTransform.rotation);
             gameController.GameOver();
         }
+        
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
